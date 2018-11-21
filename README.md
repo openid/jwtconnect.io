@@ -42,17 +42,17 @@ Starting from the lowest layer and working upwards this is a very high level des
 
 ### Python
 
-- https://cryptojwt.readthedocs.io/en/latest/
-- https://oidcmsg.readthedocs.io/en/latest/
-- https://oidcservice.readthedocs.io/en/latest/
-- https://oidcrp.readthedocs.io/en/latest/
+- [cryptojwt](https://cryptojwt.readthedocs.io/en/latest/)
+- [oidcmsg](https://oidcmsg.readthedocs.io/en/latest/)
+- [oidcservice](https://oidcservice.readthedocs.io/en/latest/)
+- [oidcrp](https://oidcrp.readthedocs.io/en/latest/)
 
 
 ## Implementations
 
 ### Python
 
-- https://github.com/openid/JWTConnect-Python-CryptoJWT
-- https://github.com/openid/JWTConnect-Python-OidcMsg
-- https://github.com/openid/JWTConnect-Python-OidcService
-- https://github.com/openid/JWTConnect-Python-OidcRP
+- [CryptoJWT](https://github.com/openid/JWTConnect-Python-CryptoJWT)
+- [OidcMsg](https://github.com/openid/JWTConnect-Python-OidcMsg)
+- [OidcService](https://github.com/openid/JWTConnect-Python-OidcService)
+- [OidcRP](https://github.com/openid/JWTConnect-Python-OidcRP)
