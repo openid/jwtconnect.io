@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>JWTConnect.io</title>
     <style>
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 433px;
-      height: 162px;
-      margin-top: -150px;
-      margin-left: -200px;
-    }
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 433px;
+            height: 162px;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
     </style>
-  </head>
-  <body>
-    <img src="/static/oid%20l%20jwtconnect%20compact%20l%20rgb%20150dpi%2075mm.png" alt="logo" />
-  </body>
+</head>
+
+<body id="preview">
+<img src="/static/oid%20l%20jwtconnect%20compact%20l%20rgb%20150dpi%2075mm.png" alt="logo"/>
+<h1><a id="JWTConnect_2"></a>JWTConnect</h1>
+<p>JWTConnect is a collection of OpenIDConnect (OIDC) Relaying Party (RP) Client libraries.<br>
+    Presently only the Python language implementation is available, soon to be made available are Java and<br>
+    JavaScript libraries too.</p>
+<p>JWTConnect aims at being complete OIDC RP implementations. We also strive to make them as secure as possible.</p>
+<h2><a id="The_overall_architecture_10"></a>The overall architecture.</h2>
+<p>Independent of programming language a common design criteria was that programmers moving between the<br>
+    languages should recognise the layout.<br>
+    We have therefor tried to keep the APIs as similar as possible.</p>
+<p>Working with the implementations we split the work into 4 layers. Each layer depends on underlying layers.<br>
+    Starting from the lowest layer and working upwards this is a very high level description of each of them:</p>
+<ul>
+    <li>
+        <p><strong>cryptojwt</strong><br>
+            Implements RFC 7515-7519 and tools for handling cryptographic keys</p>
+    </li>
+    <li>
+        <p><strong>oidcmsg</strong><br>
+            Implements a basic Message class with methods for deserialising and serialising to/fro
+            urlencoded/json/jwt.<br>
+            <em>Oidcmsg</em> defines subclasses for all the requests/responses in OAuth2/OIDC.<br>
+            Each subclass has a verify method that based on information in the subclass about required/optional<br>
+            claims for a specific response/request, their types and in some cases allowed values, can verify that
+            the<br>
+            message is correct as specified by the standard.</p>
+    </li>
+    <li>
+        <p><strong>oidcservice</strong><br>
+            The RP uses services provided by an AS/OP. Services like web finger, provider info discovery,
+            authorisation<br>
+            and so on. Each of these services are represented by a subclass of a general Service class. Each service
+            class<br>
+            has access to a Service Context class which keeps information which is specific to an AS/OP but
+            independent<br>
+            of which user is using the RP to talk to an AS/OP. To keep user specific information there is an
+            interface<br>
+            to a State database.</p>
+    </li>
+    <li>
+        <p><strong>oidcrp</strong><br>
+            Implements the interface that an implementor that wants to add RP functionality to a program/service<br>
+            should use. A normal implementor should never have to bother with the underlying libraries.</p>
+    </li>
+</ul>
+<h2><a id="Implementation_specific_documentation_40"></a>Implementation specific documentation</h2>
+<h3><a id="Python_42"></a>Python</h3>
+<ul>
+    <li><a href="https://cryptojwt.readthedocs.io/en/latest/">https://cryptojwt.readthedocs.io/en/latest/</a></li>
+    <li><a href="https://oidcmsg.readthedocs.io/en/latest/">https://oidcmsg.readthedocs.io/en/latest/</a></li>
+    <li><a href="https://oidcservice.readthedocs.io/en/latest/">https://oidcservice.readthedocs.io/en/latest/</a></li>
+    <li><a href="https://oidcrp.readthedocs.io/en/latest/">https://oidcrp.readthedocs.io/en/latest/</a></li>
+</ul>
+<h2><a id="Implementations_50"></a>Implementations</h2>
+<h3><a id="Python_52"></a>Python</h3>
+<ul>
+    <li><a href="https://github.com/openid/JWTConnect-Python-CryptoJWT">https://github.com/openid/JWTConnect-Python-CryptoJWT</a>
+    </li>
+    <li><a href="https://github.com/openid/JWTConnect-Python-OidcMsg">https://github.com/openid/JWTConnect-Python-OidcMsg</a>
+    </li>
+    <li><a href="https://github.com/openid/JWTConnect-Python-OidcService">https://github.com/openid/JWTConnect-Python-OidcService</a>
+    </li>
+    <li>
+        <a href="https://github.com/openid/JWTConnect-Python-OidcRP">https://github.com/openid/JWTConnect-Python-OidcRP</a>
+    </li>
+</ul>
+
+</body>
 </html>
